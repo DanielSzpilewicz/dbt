@@ -37,5 +37,6 @@ models:
     marts:
       ga_session:
         materialized: view
-      staging:
+    staging:
+      ga_session:
         materialized: table
