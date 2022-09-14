@@ -1,9 +1,3 @@
-{{
-    config(
-        materialized = 'view'
-    )
-}}
-
 with 
     totalPageViews as (
     select * from {{ ref('totalPageViews')}}
