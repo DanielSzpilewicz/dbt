@@ -6,3 +6,11 @@ sources:
       schema: google_analytics_sample
       tables:
         - name: ga_sessions_*
+
+models:
+  - name: totalPageViews
+    columns:
+      - name: totalPageViews
+        tests:
+          - not_null
+
