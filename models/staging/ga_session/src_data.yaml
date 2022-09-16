@@ -13,4 +13,9 @@ models:
       - name: totalPageViews
         tests:
           - not_null
+  - name: distinctCountCountry
+    columns:
+      - name: distinctCountCountry
+        tests:
+          - not_null
 
