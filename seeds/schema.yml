@@ -1,0 +1,15 @@
+version: 2
+
+
+seeds:
+    - name: working_days
+      description: table providing working days
+      columns:
+        - name: date
+          description: date range same as final final report
+          tests:
+            - unique
+        - name: working_day
+          decsription: indicate if working_day or weekend
+          tests:
+            - not_null

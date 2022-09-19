@@ -1,0 +1,19 @@
+version: 2
+
+sources: 
+    - name: google_analytics_sample
+      description: clone of bigquery public dataset
+      database: bigquery-public-data
+      schema: google_analytics_sample
+      tables:
+        - name: ga_sessions_*
+          description: table containing raw information about popularity of operating systems
+          columns:
+            - name: date
+              description: date of research
+              tests: 
+                - not_null
+            - name: device.operatingSystem
+              description: name of operating system
+              tests: 
+                - not_null

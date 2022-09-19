@@ -1,3 +1,6 @@
-SELECT date as reportDate, device.operatingSystem as operationSystem, count(distinct(geoNetwork.country)) as distinctCountCountry
+SELECT  
+date AS reportDate, 
+device.operatingSystem AS operationSystem, 
+COUNT(distinct(geoNetwork.country)) AS distinctCountCountry
 FROM {{ source('google_analytics_sample', 'ga_sessions_*') }}
-group by 1,2
+GROUP BY 1,2

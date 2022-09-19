@@ -1,3 +1,6 @@
-SELECT date as reportDate, device.operatingSystem as operationSystem, sum(totals.pageviews) as totalPageViews
+SELECT 
+date AS reportDate, 
+device.operatingSystem AS operationSystem, 
+SUM(totals.pageviews) AS totalPageViews
 FROM {{ source('google_analytics_sample', 'ga_sessions_*') }}
-group by 1,2
+GROUP BY 1,2
