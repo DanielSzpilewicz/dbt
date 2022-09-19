@@ -1,0 +1,27 @@
+version: 2
+
+
+models:
+  - name: totalPageViews
+    description: '{{doc("operating_systems")}}'
+    columns:
+      - name: totalPageViews
+        description: Sum of total number of page views per specific operating system
+        tests:
+          - not_null
+      - name: reportDate
+        tests:
+          - not_null
+          - unique      
+
+  - name: distinctCountCountry
+    description: '{{doc("operating_systems")}}'
+    columns:
+      - name: distinctCountCountry
+        description: Count of total number of geoNetworks per specific operating system
+        tests:
+          - not_null
+      - name: reportDate
+        tests:
+          - not_null
+          - unique    

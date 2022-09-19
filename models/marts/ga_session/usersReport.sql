@@ -1,18 +1,22 @@
-with 
-    totalPageViews as (
-    select * from {{ ref('totalPageViews')}}
+WITH 
+    totalPageViews AS (
+    SELECT * FROM {{ ref('totalPageViews')}}
 ),
 
-    distinctCountCountry as (
-    select * from {{ ref('distinctCountCountry')}}
+    distinctCountCountry AS (
+    SELECT * FROM {{ ref('distinctCountCountry')}}
 ),
 
-usersReport as (
-    select dcc.reportDate, dcc.operationSystem, dcc.distinctCountCountry, tpv.totalPageViews
-    from distinctCountCountry as dcc
-    inner join totalPageViews tpv
-    on dcc.reportDate = tpv.reportDate 
-    and dcc.operationSystem = tpv.operationSystem
+usersReport AS (
+    SELECT dcc.reportDate, 
+    dcc.operationSystem, 
+    dcc.distinctCountCountry, 
+    tpv.totalPageViews
+    FROM distinctCountCountry AS dcc
+    FULL OUTER JOIN totalPageViews tpv
+    ON dcc.reportDate = tpv.reportDate 
+    AND dcc.operationSystem = tpv.operationSystem
 )
 
-Select * from usersReport
+SELECT * FROM usersReport
+order by reportDate desc
